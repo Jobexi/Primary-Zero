@@ -1,8 +1,8 @@
 PewterCity_Script:
 	call EnableAutoTextBoxDrawing
 	ld a, [wStory1]
-	cp $1
-	jr nz, .done
+	cp $0
+	jr z, .done
 	ld a, [wJobexi1]
 	cp $2
 	jr z, .done

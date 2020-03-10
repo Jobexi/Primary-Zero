@@ -54,7 +54,7 @@ ENDM
 	mapconst Y4,                  		 6, 18 ; 
 	mapconst X7,                  		11,  8 ; 
 	mapconst X8,                  		11, 12 ; 
-	mapconst Z1,			         7,  5 ; $EE
+	mapconst Z1,			        12, 53 ; $EE
 	mapconst REDS_HOUSE_1F,                  4,  4 ; $25 ; $32, ACTUALLY
 	mapconst REDS_HOUSE_2F,                  4,  4 ; $26
 	mapconst BLUES_HOUSE,                    4,  4 ; $27

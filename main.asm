@@ -43,11 +43,6 @@ INCLUDE "engine/test_battle.asm"
 INCLUDE "engine/overworld/item.asm" 
 INCLUDE "engine/overworld/movement.asm" ; MUST BE IN THIS BANK
 
-INCLUDE "data/mapHeaders/Z1.asm"
-INCLUDE "scripts/Z1.asm"
-INCLUDE "data/mapObjects/Z1.asm"
-Z1_Blocks: INCBIN "maps/Z1.blk"
-
 INCLUDE "engine/cable_club.asm"
 
 INCLUDE "engine/menu/main_menu.asm"
@@ -294,6 +289,8 @@ VermilionCity_Blocks: INCBIN "maps/VermilionCity.blk"
 INCLUDE "data/mapHeaders/FuchsiaCity.asm"
 INCLUDE "data/mapObjects/FuchsiaCity.asm"
 FuchsiaCity_Blocks: INCBIN "maps/FuchsiaCity.blk"
+
+; This is the spot!
 
 INCLUDE "engine/play_time.asm"
 
@@ -2178,4 +2175,9 @@ INCLUDE "data/mapObjects/Y4.asm"
 Y4_Blocks: INCBIN "maps/Y4.blk"
 
 SECTION "bank32", ROMX ; Z MAPS
+
+INCLUDE "data/mapHeaders/Z1.asm"
+INCLUDE "scripts/Z1.asm"
+INCLUDE "data/mapObjects/Z1.asm"
+Z1_Blocks: INCBIN "maps/Z1.blk"
 

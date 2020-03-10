@@ -897,6 +897,8 @@ LoadTileBlockMap::
 	jr nz, .backgroundTileLoop
 ; load tile map of current map (made of tile block IDs)
 ; a 3-byte border at the edges of the map is kept so that there is space for map connections
+	ld a, $00 ; This Clears the Jobexi Data
+	ld [wJobexi1], a ; For the purpose of Maintaining New Structure Layouts.
 	ld hl, wOverworldMap
 	ld a, [wCurMapWidth]
 	ld [hMapWidth], a

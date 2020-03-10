@@ -205,6 +205,8 @@ SetPal_Overworld:
 	jr c, .x7pal
 	cp X8 + 1
 	jr c, .x8pal	
+	cp Z1 + 1
+	jr c, .normalDungeonOrBuilding
 .yPals	
 	ld a, PAL_ROUTE - 1
 	jr .town
