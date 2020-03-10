@@ -1,0 +1,5 @@
+wJobexi1 Codes
+-=-=-
+0: Nothing
+1: Using a RocketBall
+2: Initiating a Map Tile Change
