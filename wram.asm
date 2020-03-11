@@ -2657,12 +2657,14 @@ wMissableObjectFlags:: ; d5a6
 	ds 40
 wMissableObjectFlagsEnd::
 
-wJobexi1:: ; d66e
+wJobexi1:: ; d686
 	ds 1 
-wStory1:: ; d66f
+wJobexi2:: ; d687
+	ds 1 	
+wStory1:: ; d688
 	ds 1 
-wStory2:: ; d670
-	ds 31
+wStory2:: ; d689
+	ds 30
 	
 wd5cd:: ds 1 ; temp copy of c1x2 (sprite facing/anim)	
 
@@ -2877,8 +2879,10 @@ wRoute18Gate1FCurScript:: ; d669
 	ds 1
 wDiglettCaveCurScript:: ; d670 ; D70A
 	ds 1
+wZ1CurScript:: ; d670 ; D70B
+	ds 1	
 
-	ds 77 ; WAS ORIGINALLY 78 
+	ds 76 ; WAS ORIGINALLY 78 
 wGameProgressFlagsEnd::
 	
 wMissableObjectList:: ; d5ce

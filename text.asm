@@ -194,6 +194,7 @@ INCLUDE "text/maps/SilphCo3F.asm"
 INCLUDE "text/maps/SilphCo4F.asm"
 INCLUDE "text/maps/SilphCo5F.asm"
 INCLUDE "text/maps/DiglettsCave.asm"
+INCLUDE "text/maps/Z1.asm"
 
 SECTION "Text 2", ROMX ; BANK $21
 

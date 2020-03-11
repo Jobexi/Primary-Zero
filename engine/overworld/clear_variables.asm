@@ -1,6 +1,6 @@
 ClearVariablesOnEnterMap:
 	ld a, $00
-	ld [wJobexi1], a
+	ld [wJobexi1], a	
 	ld a, SCREEN_HEIGHT_PIXELS
 	ld [hWY], a
 	ld [rWY], a

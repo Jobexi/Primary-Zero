@@ -6,7 +6,13 @@ Data/Map_Header_Banks *
 Data/Hide_Show_Data *
 Data/Wild_Mons
 Data/Map_Songs
+-=-=-=-
+Committing To Git
 -=-=-
+git add *
+git commit -m "date"
+git push origin master
+-=-=-=-
 Primary One: Locations & Max Levels
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 PALLET TOWN		-  5

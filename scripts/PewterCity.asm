@@ -3,6 +3,8 @@ PewterCity_Script:
 	ld a, [wStory1]
 	cp $0
 	jr z, .done
+	ld a, $01
+	ld [wJobexi2], a
 	ld a, [wJobexi1]
 	cp $2
 	jr z, .done
