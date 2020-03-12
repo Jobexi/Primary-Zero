@@ -49,7 +49,6 @@ MapHeaderPointers::
 	dw Y4_h 
 	dw X7_h 
 	dw X8_h 
-	dw Z1_h
 	dw RedsHouse1F_h
 	dw RedsHouse2F_h
 	dw BluesHouse_h
@@ -243,6 +242,7 @@ MapHeaderPointers::
 	dw SilphCo11F_h
 	dw SilphCoElevator_h
 	dw SilphCo2F_h ; UNUSED_MAP_ED
+	dw Z1_h
 	dw TradeCenter_h
 	dw Colosseum_h
 	dw LoreleisRoom_h

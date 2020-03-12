@@ -49,7 +49,6 @@ MapHeaderBanks:
 	db BANK(Y4_h) 
 	db BANK(X7_h)
 	db BANK(X8_h)
-	db BANK(Z1_h) 
 	db BANK(RedsHouse1F_h)
 	db BANK(RedsHouse2F_h)
 	db BANK(BluesHouse_h)
@@ -243,6 +242,7 @@ MapHeaderBanks:
 	db BANK(SilphCo11F_h)
 	db BANK(SilphCoElevator_h)
 	db $11 ; UNUSED_MAP_ED
+	db BANK(Z1_h) 
 	db BANK(TradeCenter_h)
 	db BANK(Colosseum_h)
 	db BANK(LoreleisRoom_h)

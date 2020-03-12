@@ -2369,7 +2369,7 @@ wMapPalOffset:: ; d35d
 ; normally, it is 0. it is 6 when Flash is needed, causing FadePal2 to be used instead of FadePal4
 	ds 1
 
-wCurMap:: ; d35e
+; WCurMap:: ; d35e ; moved lower
 	ds 1
 
 wCurrentTileBlockMapViewPointer:: ; d35f
@@ -2390,7 +2390,7 @@ wYBlockCoord:: ; d363
 wXBlockCoord:: ; d364
 	ds 1
 
-wLastMap:: ; d365
+; wLastMap:: ; d365 ; Moved Lower
 	ds 1
 
 wUnusedD366:: ; d366
@@ -2879,7 +2879,7 @@ wRoute18Gate1FCurScript:: ; d669
 	ds 1
 wDiglettCaveCurScript:: ; d670 ; D70A
 	ds 1
-wZ1CurScript:: ; d670 ; D70B
+wPrimaryLeagueCurScript:: ; d670 ; D70B
 	ds 1	
 
 	ds 76 ; WAS ORIGINALLY 78 
@@ -2942,10 +2942,10 @@ wBoulderSpriteIndex:: ; d718 ; D7B8
 ; sprite index of the boulder the player is trying to push
 	ds 1
 
-wLastBlackoutMap:: ; d719
+; wLastBlackoutMap:: ; d719 ; Moved Lower
 	ds 1
 
-wDestinationMap:: ; d71a ; D7BA
+; wDestinationMap:: ; d71a ; D7BA ; Moved Lower
 ; destination map (for certain types of special warps, not ordinary walking)
 	ds 1
 
@@ -2957,7 +2957,7 @@ wTileInFrontOfBoulderAndBoulderCollisionResult:: ; d71c
 ; also used to store the result of the collision check ($ff for a collision and $00 for no collision)
 	ds 1
 
-wDungeonWarpDestinationMap:: ; d71d ; d7bd
+; wDungeonWarpDestinationMap:: ; d71d ; d7bd ; Moved Lower
 ; destination map for dungeon warps
 	ds 1
 
@@ -3182,8 +3182,24 @@ wDayCareMonOT::   ds NAME_LENGTH ; da54
 
 wDayCareMon:: box_struct wDayCareMon ; da5f
 
-wMainDataEnd::
+wCurMap:: ; d35e ; Moved from above
+	ds 2
 
+wLastMap:: ; d365 ; Moved from above
+	ds 2
+
+wLastBlackoutMap:: ; d719 ; Moved from above
+	ds 2
+
+wDestinationMap:: ; d71a ; D7BA ; Moved from above
+; destination map (for certain types of special warps, not ordinary walking)
+	ds 2	
+	
+wDungeonWarpDestinationMap:: ; d71d ; d7bd ; Moved from above
+; destination map for dungeon warps
+	ds 2
+	
+wMainDataEnd::
 
 wBoxDataStart::
 
@@ -3202,7 +3218,7 @@ wBoxDataEnd::
 
 ; dee2
 
-	ds 100 ; the very last 125 bits accessible in this register.
+	ds 91 ; the very last bits accessible in this register.
 
 SECTION "Stack", WRAM0
 

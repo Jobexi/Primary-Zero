@@ -1,9 +1,10 @@
-Z1_Script:
+Z1_Script:	
 	call EnableAutoTextBoxDrawing
-	ld hl, Z1TrainerHeader0
+	ld hl, Z1TrainerHeader1
 	ld de, Z1_ScriptPointers
-	ld a, [wZ1CurScript]
+	ld a, [wPrimaryLeagueCurScript]
 	call ExecuteCurMapScriptInTable
+	ld [wPrimaryLeagueCurScript], a
 	ret
 
 Z1Pewter_5c3a4:
@@ -52,15 +53,15 @@ Z1PewterScript_5c3df:
 	ld [wMissableObjectIndex], a
 	predef HideObject
 
-	ResetEvents EVENT_1ST_ROUTE22_RIVAL_BATTLE, EVENT_ROUTE22_RIVAL_WANTS_BATTLE
+;	ResetEvents EVENT_1ST_ROUTE22_RIVAL_BATTLE, EVENT_ROUTE22_RIVAL_WANTS_BATTLE
 
 	; deactivate gym trainers
-	SetEvent EVENT_BEAT_PEWTER_GYM_TRAINER_0
+;	SetEvent EVENT_BEAT_PEWTER_GYM_TRAINER_0
 
 	ret
 
 Z1_TextPointers:
-	dw Z1PewterText0
+
 	dw Z1PewterText1
 	dw Z1PewterText2
 	dw Z1PewterText3
@@ -74,104 +75,96 @@ Z1_TextPointers:
 	dw Z1PewterText11
 	dw Z1PewterText12
 
-Z1TrainerHeader0:
-	dbEventFlagBit EVENT_9E0
-	db ($5 << 4) ; trainer's view range
-	dwEventFlagAddress EVENT_9E0
+
+Z1TrainerHeader1:
+	dbEventFlagBit EVENT_9E1
+	db ($3 << 4) ; trainer's view range
+	dwEventFlagAddress EVENT_9E1
 	dw Z1PewterBattleText1 ; TextBeforeBattle
 	dw Z1PewterAfterBattleText1 ; TextAfterBattle
 	dw Z1PewterEndBattleText1 ; TextEndBattle
 	dw Z1PewterEndBattleText1 ; TextEndBattle
-
-Z1TrainerHeader1:
-	dbEventFlagBit EVENT_9E1
-	db ($5 << 4) ; trainer's view range
-	dwEventFlagAddress EVENT_9E1
+	
+Z1TrainerHeader2:
+	dbEventFlagBit EVENT_9E2
+	db ($3 << 4) ; trainer's view range
+	dwEventFlagAddress EVENT_9E2
 	dw Z1PewterBattleText2 ; TextBeforeBattle
 	dw Z1PewterAfterBattleText2 ; TextAfterBattle
 	dw Z1PewterEndBattleText2 ; TextEndBattle
 	dw Z1PewterEndBattleText2 ; TextEndBattle
 	
-Z1TrainerHeader2:
-	dbEventFlagBit EVENT_9E2
-	db ($5 << 4) ; trainer's view range
-	dwEventFlagAddress EVENT_9E2
+Z1TrainerHeader3:
+	dbEventFlagBit EVENT_9E3
+	db ($4 << 4) ; trainer's view range
+	dwEventFlagAddress EVENT_9E3
 	dw Z1PewterBattleText3 ; TextBeforeBattle
 	dw Z1PewterAfterBattleText3 ; TextAfterBattle
 	dw Z1PewterEndBattleText3 ; TextEndBattle
 	dw Z1PewterEndBattleText3 ; TextEndBattle
 	
-Z1TrainerHeader3:
-	dbEventFlagBit EVENT_9E3
-	db ($5 << 4) ; trainer's view range
-	dwEventFlagAddress EVENT_9E3
+Z1TrainerHeader4:
+	dbEventFlagBit EVENT_9E4
+	db ($1 << 4) ; trainer's view range
+	dwEventFlagAddress EVENT_9E4
 	dw Z1PewterBattleText4 ; TextBeforeBattle
 	dw Z1PewterAfterBattleText4 ; TextAfterBattle
 	dw Z1PewterEndBattleText4 ; TextEndBattle
 	dw Z1PewterEndBattleText4 ; TextEndBattle
 	
-Z1TrainerHeader4:
-	dbEventFlagBit EVENT_9E4
-	db ($5 << 4) ; trainer's view range
-	dwEventFlagAddress EVENT_9E4
+Z1TrainerHeader5:
+	dbEventFlagBit EVENT_9E5
+	db ($1 << 4) ; trainer's view range
+	dwEventFlagAddress EVENT_9E5
 	dw Z1PewterBattleText5 ; TextBeforeBattle
 	dw Z1PewterAfterBattleText5 ; TextAfterBattle
 	dw Z1PewterEndBattleText5 ; TextEndBattle
 	dw Z1PewterEndBattleText5 ; TextEndBattle
-	
-Z1TrainerHeader5:
-	dbEventFlagBit EVENT_9E5
-	db ($5 << 4) ; trainer's view range
-	dwEventFlagAddress EVENT_9E5
+
+Z1TrainerHeader6:
+	dbEventFlagBit EVENT_9E6
+	db ($1 << 4) ; trainer's view range
+	dwEventFlagAddress EVENT_9E6
 	dw Z1PewterBattleText6 ; TextBeforeBattle
 	dw Z1PewterAfterBattleText6 ; TextAfterBattle
 	dw Z1PewterEndBattleText6 ; TextEndBattle
 	dw Z1PewterEndBattleText6 ; TextEndBattle
-
-Z1TrainerHeader6:
-	dbEventFlagBit EVENT_9E6
-	db ($5 << 4) ; trainer's view range
-	dwEventFlagAddress EVENT_9E6
+	
+Z1TrainerHeader7:
+	dbEventFlagBit EVENT_9E7
+	db ($1 << 4) ; trainer's view range
+	dwEventFlagAddress EVENT_9E7
 	dw Z1PewterBattleText7 ; TextBeforeBattle
 	dw Z1PewterAfterBattleText7 ; TextAfterBattle
 	dw Z1PewterEndBattleText7 ; TextEndBattle
 	dw Z1PewterEndBattleText7 ; TextEndBattle
-	
-Z1TrainerHeader7:
-	dbEventFlagBit EVENT_9E7
-	db ($5 << 4) ; trainer's view range
-	dwEventFlagAddress EVENT_9E7
+
+Z1TrainerHeader8:
+	dbEventFlagBit EVENT_9E8, 1
+	db ($1 << 4) ; trainer's view range
+	dwEventFlagAddress EVENT_9E8, 1
 	dw Z1PewterBattleText8 ; TextBeforeBattle
 	dw Z1PewterAfterBattleText8 ; TextAfterBattle
 	dw Z1PewterEndBattleText8 ; TextEndBattle
 	dw Z1PewterEndBattleText8 ; TextEndBattle
-
-Z1TrainerHeader8:
-	dbEventFlagBit EVENT_9E8
-	db ($5 << 4) ; trainer's view range
-	dwEventFlagAddress EVENT_9E8
+	
+Z1TrainerHeader9:
+	dbEventFlagBit EVENT_9E9, 1
+	db ($4 << 4) ; trainer's view range
+	dwEventFlagAddress EVENT_9E9, 1
 	dw Z1PewterBattleText9 ; TextBeforeBattle
 	dw Z1PewterAfterBattleText9 ; TextAfterBattle
 	dw Z1PewterEndBattleText9 ; TextEndBattle
 	dw Z1PewterEndBattleText9 ; TextEndBattle
 	
-Z1TrainerHeader9:
-	dbEventFlagBit EVENT_9E9
-	db ($5 << 4) ; trainer's view range
-	dwEventFlagAddress EVENT_9E9
+Z1TrainerHeader10:
+	dbEventFlagBit EVENT_9EA, 1
+	db ($1 << 4) ; trainer's view range
+	dwEventFlagAddress EVENT_9EA, 1
 	dw Z1PewterBattleText10 ; TextBeforeBattle
 	dw Z1PewterAfterBattleText10 ; TextAfterBattle
 	dw Z1PewterEndBattleText10 ; TextEndBattle
 	dw Z1PewterEndBattleText10 ; TextEndBattle
-	
-Z1TrainerHeader10:
-	dbEventFlagBit EVENT_9EA
-	db ($5 << 4) ; trainer's view range
-	dwEventFlagAddress EVENT_9EA
-	dw Z1PewterBattleText11 ; TextBeforeBattle
-	dw Z1PewterAfterBattleText11 ; TextAfterBattle
-	dw Z1PewterEndBattleText11 ; TextEndBattle
-	dw Z1PewterEndBattleText11 ; TextEndBattle
 	
 	db $ff
 
@@ -188,131 +181,113 @@ Z1PewterAfterBattleText1:
 	db "@"
 	
 Z1PewterBattleText2:
-	TX_FAR _Z1PewterBattleText1
+	TX_FAR _Z1PewterBattleText2
 	db "@"
 
 Z1PewterEndBattleText2:
-	TX_FAR _Z1PewterEndBattleText1
+	TX_FAR _Z1PewterEndBattleText2
 	db "@"
 
 Z1PewterAfterBattleText2:
-	TX_FAR _Z1PewterAfterBattleText1
+	TX_FAR _Z1PewterAfterBattleText2
 	db "@"	
 
 Z1PewterBattleText3:
-	TX_FAR _Z1PewterBattleText1
+	TX_FAR _Z1PewterBattleText3
 	db "@"
 
 Z1PewterEndBattleText3:
-	TX_FAR _Z1PewterEndBattleText1
+	TX_FAR _Z1PewterEndBattleText3
 	db "@"
 
 Z1PewterAfterBattleText3:
-	TX_FAR _Z1PewterAfterBattleText1
+	TX_FAR _Z1PewterAfterBattleText3
 	db "@"
 	
 Z1PewterBattleText4:
-	TX_FAR _Z1PewterBattleText1
+	TX_FAR _Z1PewterBattleText4
 	db "@"
 
 Z1PewterEndBattleText4:
-	TX_FAR _Z1PewterEndBattleText1
+	TX_FAR _Z1PewterEndBattleText4
 	db "@"
 
 Z1PewterAfterBattleText4:
-	TX_FAR _Z1PewterAfterBattleText1
+	TX_FAR _Z1PewterAfterBattleText4
 	db "@"
 
 Z1PewterBattleText5:
-	TX_FAR _Z1PewterBattleText1
+	TX_FAR _Z1PewterBattleText5
 	db "@"
 
 Z1PewterEndBattleText5:
-	TX_FAR _Z1PewterEndBattleText1
+	TX_FAR _Z1PewterEndBattleText5
 	db "@"
 
 Z1PewterAfterBattleText5:
-	TX_FAR _Z1PewterAfterBattleText1
+	TX_FAR _Z1PewterAfterBattleText5
 	db "@"
 
 Z1PewterBattleText6:
-	TX_FAR _Z1PewterBattleText1
+	TX_FAR _Z1PewterBattleText6
 	db "@"
 
 Z1PewterEndBattleText6:
-	TX_FAR _Z1PewterEndBattleText1
+	TX_FAR _Z1PewterEndBattleText6
 	db "@"
 
 Z1PewterAfterBattleText6:
-	TX_FAR _Z1PewterAfterBattleText1
+	TX_FAR _Z1PewterAfterBattleText6
 	db "@"
 
 Z1PewterBattleText7:
-	TX_FAR _Z1PewterBattleText1
+	TX_FAR _Z1PewterBattleText7
 	db "@"
 
 Z1PewterEndBattleText7:
-	TX_FAR _Z1PewterEndBattleText1
+	TX_FAR _Z1PewterEndBattleText7
 	db "@"
 
 Z1PewterAfterBattleText7:
-	TX_FAR _Z1PewterAfterBattleText1
+	TX_FAR _Z1PewterAfterBattleText7
 	db "@"
 	
 Z1PewterBattleText8:
-	TX_FAR _Z1PewterBattleText1
+	TX_FAR _Z1PewterBattleText8
 	db "@"
 
 Z1PewterEndBattleText8:
-	TX_FAR _Z1PewterEndBattleText1
+	TX_FAR _Z1PewterEndBattleText8
 	db "@"
 
 Z1PewterAfterBattleText8:
-	TX_FAR _Z1PewterAfterBattleText1
+	TX_FAR _Z1PewterAfterBattleText8
 	db "@"
 	
 Z1PewterBattleText9:
-	TX_FAR _Z1PewterBattleText1
+	TX_FAR _Z1PewterBattleText9
 	db "@"
 
 Z1PewterEndBattleText9:
-	TX_FAR _Z1PewterEndBattleText1
+	TX_FAR _Z1PewterEndBattleText9
 	db "@"
 
 Z1PewterAfterBattleText9:
-	TX_FAR _Z1PewterAfterBattleText1
+	TX_FAR _Z1PewterAfterBattleText9
 	db "@"
 	
 Z1PewterBattleText10:
-	TX_FAR _Z1PewterBattleText1
+	TX_FAR _Z1PewterBattleText10
 	db "@"
 
 Z1PewterEndBattleText10:
-	TX_FAR _Z1PewterEndBattleText1
+	TX_FAR _Z1PewterEndBattleText10
 	db "@"
 
 Z1PewterAfterBattleText10:
-	TX_FAR _Z1PewterAfterBattleText1
-	db "@"
-	
-Z1PewterBattleText11:
-	TX_FAR _Z1PewterBattleText1
+	TX_FAR _Z1PewterAfterBattleText10
 	db "@"
 
-Z1PewterEndBattleText11:
-	TX_FAR _Z1PewterEndBattleText1
-	db "@"
-
-Z1PewterAfterBattleText11:
-	TX_FAR _Z1PewterAfterBattleText1
-	db "@"	
-							
-Z1PewterText0:
-	TX_ASM
-	ld hl, Z1TrainerHeader0	
-	call TalkToTrainer
-	jp TextScriptEnd
-	
 Z1PewterText1:
 	TX_ASM
 	ld hl, Z1TrainerHeader1	
@@ -375,12 +350,93 @@ Z1PewterText10:
 
 Z1PewterText11:
 	TX_ASM
-	ld hl, Z1TrainerHeader10
+	call Z1Pewter_5c3a4
+	ld a, [wStory1]
+	cp $1
+	jr nz, .defeatedBrock
+	ld a, [wStory2]
+	cp $0
+	jr z, .notQualified	
+	cp $1
+	jr z, .noGetPrizeFromOak
+	cp $2
+	jr z, .qualified
+	jr .defeatedBrock
+.notQualified
+	ld hl, Z1PewterText_NQB
+	call PrintText
+	jp TextScriptEnd
+.noGetPrizeFromOak
+	ld hl, Z1PewterText_DGPFOB
+	call PrintText	
+	jp TextScriptEnd
+.qualified
+	ld hl, Z1PewterText_QB
+	call PrintText	
+	jp TextScriptEnd	
+.defeatedBrock	
+	ld hl, Z1PewterText_DBB
+	call PrintText
+	jp TextScriptEnd	
+
+Z1PewterText12:
+	TX_ASM
+	ld a, [wStory1]
+	cp $1
+	jr nz, .defeatedBrock
+	ld a, [wStory2]
+	cp $0
+	jr z, .notQualified	
+	cp $1
+	jr z, .noGetPrizeFromOak
+	cp $2
+	jr z, .qualified
+	jr .defeatedBrock
+.notQualified	
+	ld hl, Z1PewterText_NQ
+	call PrintText
+	jp TextScriptEnd
+.noGetPrizeFromOak
+	ld hl, Z1PewterText_DGPFO
+	call PrintText	
+	jp TextScriptEnd
+.qualified
+	ld hl, Z1PewterText_QB
+	call PrintText	
+	jp TextScriptEnd	
+.defeatedBrock	
+	ld hl, Z1PewterText_DB
 	call PrintText
 	jp TextScriptEnd
 	
-Z1PewterText12:
-	TX_ASM
-	ld hl, Z1TrainerHeader10
-	call PrintText
-	jp TextScriptEnd
+Z1PewterText_NQ:
+	TX_FAR _Z1PewterText_NQ
+	db "@"
+
+Z1PewterText_DGPFO:
+	TX_FAR _Z1PewterText_DGPFO
+	db "@"	
+
+Z1PewterText_Q:
+	TX_FAR _Z1PewterText_Q
+	db "@"
+
+Z1PewterText_DB:
+	TX_FAR _Z1PewterText_DB
+	db "@"	
+
+Z1PewterText_NQB:
+	TX_FAR _Z1PewterText_NQ
+	db "@"
+
+Z1PewterText_DGPFOB:
+	TX_FAR _Z1PewterText_DGPFO
+	db "@"	
+
+Z1PewterText_QB:
+	TX_FAR _Z1PewterText_Q
+	db "@"
+
+Z1PewterText_DBB:
+	TX_FAR _Z1PewterText_DB
+	db "@"			

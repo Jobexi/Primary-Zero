@@ -2528,7 +2528,7 @@ const_value = 0
 	const EVENT_9DD                                  ; 9DD, (D882, bit 5)
 	const EVENT_9DE                                  ; 9DE, (D882, bit 6)
 	const EVENT_9DF                                  ; 9DF, (D882, bit 7)
-	const EVENT_9E0                                  ; 9E0, (D883, bit 0)
+	const EVENT_9E0                                  ; 9E0, (D883, bit 0) ; D93B
 	const EVENT_9E1                                  ; 9E1, (D883, bit 1)
 	const EVENT_9E2                                  ; 9E2, (D883, bit 2)
 	const EVENT_9E3                                  ; 9E3, (D883, bit 3)
@@ -2536,7 +2536,7 @@ const_value = 0
 	const EVENT_9E5                                  ; 9E5, (D883, bit 5)
 	const EVENT_9E6                                  ; 9E6, (D883, bit 6)
 	const EVENT_9E7                                  ; 9E7, (D883, bit 7)
-	const EVENT_9E8                                  ; 9E8, (D884, bit 0)
+	const EVENT_9E8                                  ; 9E8, (D884, bit 0) ; D93C
 	const EVENT_9E9                                  ; 9E9, (D884, bit 1)
 	const EVENT_9EA                                  ; 9EA, (D884, bit 2)
 	const EVENT_9EB                                  ; 9EB, (D884, bit 3)
@@ -2544,7 +2544,7 @@ const_value = 0
 	const EVENT_9ED                                  ; 9ED, (D884, bit 5)
 	const EVENT_9EE                                  ; 9EE, (D884, bit 6)
 	const EVENT_9EF                                  ; 9EF, (D884, bit 7)
-	const EVENT_9F0                                  ; 9F0, (D885, bit 0)
+	const EVENT_9F0                                  ; 9F0, (D885, bit 0) ; D93D
 	const EVENT_9F1                                  ; 9F1, (D885, bit 1)
 	const EVENT_9F2                                  ; 9F2, (D885, bit 2)
 	const EVENT_9F3                                  ; 9F3, (D885, bit 3)
@@ -2552,7 +2552,7 @@ const_value = 0
 	const EVENT_9F5                                  ; 9F5, (D885, bit 5)
 	const EVENT_9F6                                  ; 9F6, (D885, bit 6)
 	const EVENT_9F7                                  ; 9F7, (D885, bit 7)
-	const EVENT_9F8                                  ; 9F8, (D886, bit 0)
+	const EVENT_9F8                                  ; 9F8, (D886, bit 0) ; D93E
 	const EVENT_9F9                                  ; 9F9, (D886, bit 1)
 	const EVENT_9FA                                  ; 9FA, (D886, bit 2)
 	const EVENT_9FB                                  ; 9FB, (D886, bit 3)

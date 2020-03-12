@@ -48,7 +48,6 @@ MapSpriteSets:
 	db $06 ; UPSPIRALING PATH
 	db $07 ; VIOLET FIELDS
 	db $01 ; ASCENSION TOWER
-	
 
 ; Format:
 ; 00: determines whether the map is split East/West or North/South

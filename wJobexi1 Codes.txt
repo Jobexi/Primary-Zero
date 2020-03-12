@@ -3,6 +3,10 @@ wJobexi1 Codes
 0: Nothing
 1: Using a RocketBall
 2: Initiating a Map Tile Change
+3: Randomize Pkmn 3
+4: Randomize Pkmn 4
+5: Randomize Pkmn 5
+6: Randomize Pkmn 6
 -=-=-=-
 wJobexi2 Codes
 -=-=-

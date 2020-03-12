@@ -40,67 +40,317 @@ _Z1PewterText_5c4c1::
 	prompt
 
 _Z1PewterBattleText1::
-	text "Stop right there,"
-	line "kid!"
-
-	para "You're still light"
-	line "years from facing"
-	cont "BROCK!"
+	text "Do you like"
+	line "Potatoes?"
 	done
 
 _Z1PewterEndBattleText1::
-	text "Darn!"
-
-	para "Light years isn't"
-	line "time! It measures"
-	cont "distance!"
+	text "It "
+	line "was a mistake to"
+	cont "think I could"
+	cont "solve all of my"
+	cont "problems with"
+	cont "just potatoes."
 	prompt
 
 _Z1PewterAfterBattleText1::
-	text "You're pretty hot,"
-	line "but not as hot"
-	cont "as BROCK!"
+	text "Fried! Mashed!"
+	line "Boiled!"
+	cont "Au Gratin!"
+	done
+	
+_Z1PewterBattleText2::
+	text "Fine, one more"
+	line "battle before"
+	cont "lunchtime."
 	done
 
-_Z1PewterText_5c515::
-	text "Hiya! I can tell"
-	line "you have what it"
-	cont "takes to become a"
-	cont "#MON champ!"
-
-	para "I'm no trainer,"
-	line "but I can tell"
-	cont "you how to win!"
-
-	para "Let me take you"
-	line "to the top!"
-	done
-
-_Z1PewterText_5c51a::
-	text "All right! Let's"
-	line "get happening!"
+_Z1PewterEndBattleText2::
+	text "Time"
+	line "is an illusion."
+	
+	para "lunchtime,"
+	line "doubly so."
 	prompt
 
-_Z1PewterText_5c51f::
-	text "The 1st #MON"
-	line "out in a match is"
-	cont "at the top of the"
-	cont "#MON LIST!"
+_Z1PewterAfterBattleText2::
+	text "Oh, did you"
+	line "Forget to bring"
+	cont "a lunch?"
+	done	
 
-	para "By changing the"
-	line "order of #MON,"
-	cont "matches could be"
-	cont "made easier!"
+_Z1PewterBattleText3::
+	text "Nice! I love"
+	line "learning from"
+	cont "other people's"
+	cont "Mistakes!"
 	done
 
-_Z1PewterText_5c524::
-	text "It's a free"
-	line "service! Let's"
-	cont "get happening!"
+_Z1PewterEndBattleText3::
+	text "Aww."
+	line "I guess I'll"
+	cont "have to settle"
+	cont "for learning from"
+	cont "my own mistakes."
 	prompt
 
-_Z1PewterText_5c529::
-	text "Just as I thought!"
-	line "You're #MON"
-	cont "champ material!"
+_Z1PewterAfterBattleText3::
+	text "I don't have"
+	line "time to make"
+	cont "all the mistakes"
+	cont "myself!"
 	done
+
+_Z1PewterBattleText4::
+	text "Nothing is"
+	line "stronger than"
+	cont "Rock #mon!"
+	done
+
+_Z1PewterEndBattleText4::
+	text "..."
+	line "except maybe"
+	cont "your #mon."
+	prompt
+
+_Z1PewterAfterBattleText4::
+	text "Silly me!" 
+	line "The Stability"
+	cont "of Rock" 
+	cont "#mon belies"
+	cont "a sense of"
+	cont "balance!"
+	done
+	
+_Z1PewterBattleText5::
+	text "Stand firm"
+	line "and become one"
+	cont "with the"
+	cont "Living Rock!"
+	done
+
+_Z1PewterEndBattleText5::
+	text "Oops!"
+	line "I lost my"
+	cont "balance."
+	prompt
+
+_Z1PewterAfterBattleText5::
+	text "I'll work"
+	line "harder next time."
+	done
+	
+_Z1PewterBattleText6::
+	text "Stable Rock"
+	line "#mon make for"
+	cont "great travel"
+	cont "companions!"
+	done
+
+_Z1PewterEndBattleText6::
+	text "Uh oh"
+	line "Maybe I should"
+	cont "continue my"
+	cont "journey"
+	cont "elsewhere."
+	prompt
+
+_Z1PewterAfterBattleText6::
+	text "May your path be"
+	line "strong and"
+	cont "steady."
+	done
+	
+_Z1PewterBattleText7::
+	text "Let me see how"
+	line "much you trust"
+	cont "your #mon!"
+	done
+
+_Z1PewterEndBattleText7::
+	text "Woah."
+	line "Your trust"
+	cont "in your #mon"
+	cont "is Rock-Steady."
+	prompt
+
+_Z1PewterAfterBattleText7::
+	text "Brock is just"
+	line "up ahead."
+	cont "You should"
+	cont "Be-bop over there."
+	done
+	
+_Z1PewterBattleText8::
+	text "Let's see if"
+	line "you're good"
+	cont "enough to face"
+	cont "Brock."
+	done
+	
+_Z1PewterEndBattleText8::
+	text "Wow." 
+	line "I Crumbled."
+	prompt
+
+_Z1PewterAfterBattleText8::
+	text "And here I"
+	line "thought you were"
+	cont "a rookie!"
+	done
+	
+_Z1PewterBattleText9::
+	text "Do you have"
+	line "the STONES to"
+	cont "finish the"
+	cont "journey!?"
+	done
+
+_Z1PewterEndBattleText9::
+	text "Yikes" 
+	line "I think I'll go"
+	cont "back home to"
+	cont "polish my Onix."
+	prompt
+
+_Z1PewterAfterBattleText9::
+	text "You're still no"
+	line "match for Brock."
+	done
+	
+_Z1PewterBattleText10::
+	text "I'm just here to"
+	line "have a good time."
+	done
+
+_Z1PewterEndBattleText10::
+	text " "
+	line "You're strong!"
+	prompt
+
+_Z1PewterAfterBattleText10::
+	text "Should I"
+	line "diversify my"
+	cont "team more?"
+	done						
+
+_Z1PewterText_Q::
+	text "Welcome to the"
+	line "Primary League!"
+		
+	para "I see that you've"
+	line "already qualified"
+	cont "at Prof. Oak's"
+	cont "Lab."
+	
+	para "In the Primary"
+	line "League, you'll"
+	cont "have to run a"
+	cont "gauntlet each"
+	cont "time you enter"
+	cont "the gym!"
+	
+	para "If you leave"
+	line "the gym without"
+	cont "defeating Brock,"
+	cont "you'll have to"
+	cont "fight each"
+	cont "trainer you"
+	cont "see again!"
+	done
+
+_Z1PewterText_DB::
+	text "Congratulations!"
+	line "Your next" 
+	cont "challenge"
+	cont "awaits you at"
+	cont "Cerulean Gym."
+
+	para "Misty is looking"
+	line "forward to a"
+	cont "splashy rematch!"
+	done
+
+_Z1PewterText_DGPFO::
+	text "Whoops! it looks"
+	line "like you've been"
+	cont "to Prof. Oak's Lab"
+	cont "to qualify,"
+
+	para "But you forgot to"
+	line "get your prize!"
+	cont "You should talk"
+	cont "to Prof Oak to"
+	cont "get your prize."
+	
+	para "Come back when"
+	line "you've done that,"
+	cont "and we will be"
+	cont "ready for you."
+	done
+
+_Z1PewterText_NQ::
+	text "Whoops! It looks"
+	line "like you aren't"
+	cont "qualified for the"
+	cont "Primary League"
+	cont "just yet."
+	
+	para "You should head"
+	line "toward Prof. Oak's"
+	cont "Lab to qualify."
+	done
+	
+_Z1PewterText_QB::
+	text "You made it!"
+	line "It's nice to"
+	cont "see you again."
+		
+	para "I hope you've"
+	line "spent your time"
+	cont "training."
+	
+	para "I'm not holding"
+	line "anything back!"
+
+_Z1PewterText_DBB::
+	text "Congratulations!"
+	line "Your next" 
+	cont "challenge"
+	cont "awaits you at"
+	cont "Cerulean Gym."
+
+	para "Please say hi to"
+	line "Misty for me!"
+	done
+
+_Z1PewterText_DGPFOB::
+	text "Whoops! it looks"
+	line "like you've been"
+	cont "to Prof. Oak's Lab"
+	cont "to qualify,"
+
+	para "But you forgot to"
+	line "get your prize!"
+	cont "You should talk"
+	cont "to Prof Oak to"
+	cont "get your prize."
+	
+	para "Come back when"
+	line "you've done that,"
+	cont "and we will be"
+	cont "ready for you."
+	done
+
+_Z1PewterText_NQB::
+	text "Whoops! It looks"
+	line "like you aren't"
+	cont "qualified for the"
+	cont "Primary League"
+	cont "just yet."
+	
+	para "You should head"
+	line "toward Prof. Oak's"
+	cont "Lab to qualify."
+	done
+	

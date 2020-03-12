@@ -54,7 +54,6 @@ ENDM
 	mapconst Y4,                  		 6, 18 ; 
 	mapconst X7,                  		11,  8 ; 
 	mapconst X8,                  		11, 12 ; 
-	mapconst Z1,			        12, 53 ; $EE
 	mapconst REDS_HOUSE_1F,                  4,  4 ; $25 ; $32, ACTUALLY
 	mapconst REDS_HOUSE_2F,                  4,  4 ; $26
 	mapconst BLUES_HOUSE,                    4,  4 ; $27
@@ -123,9 +122,9 @@ ENDM
 	mapconst SS_ANNE_1F_ROOMS,               8, 12 ; $66
 	mapconst SS_ANNE_2F_ROOMS,               8, 12 ; $67
 	mapconst SS_ANNE_B1F_ROOMS,              8, 12 ; $68
-	mapconst UNUSED_MAP_69,                  0,  0 ; $69
-	mapconst UNUSED_MAP_6A,                  0,  0 ; $6A
-	mapconst UNUSED_MAP_6B,                  0,  0 ; $6B
+	mapconst Z9,                  		 0,  0 ; $69
+	mapconst Z8,                  		 0,  0 ; $6A
+	mapconst Z7,                  		 0,  0 ; $6B
 	mapconst VICTORY_ROAD_1F,                9, 10 ; $6C
 	mapconst LANCES_ROOM,                   13, 13 ; $71
 	mapconst HALL_OF_FAME,                   4,  5 ; $76
@@ -214,9 +213,9 @@ ENDM
 	mapconst ROCKET_HIDEOUT_B3F,            14, 15 ; $C9
 	mapconst ROCKET_HIDEOUT_B4F,            12, 15 ; $CA
 	mapconst ROCKET_HIDEOUT_ELEVATOR,        4,  3 ; $CB ; $D0, ACTUALLY
-	mapconst UNUSED_MAP_CC,                  0,  0 ; $CC
-	mapconst UNUSED_MAP_CD,                  0,  0 ; $CD
-	mapconst UNUSED_MAP_CE,                  0,  0 ; $CE
+	mapconst Z6,                  		 0,  0 ; $CC
+	mapconst Z5,                  		 0,  0 ; $CD
+	mapconst Z4,                  		 0,  0 ; $CE
 	mapconst SILPH_CO_2F,                    9, 15 ; $CF
 	mapconst SILPH_CO_3F,                    9, 15 ; $D0
 	mapconst SILPH_CO_4F,                    9, 15 ; $D1
@@ -241,16 +240,28 @@ ENDM
 	mapconst CERULEAN_CAVE_1F,               9, 15 ; $E4
 	mapconst NAME_RATERS_HOUSE,              4,  4 ; $E5
 	mapconst CERULEAN_BADGE_HOUSE,           4,  4 ; $E6
-	mapconst UNUSED_MAP_E7,                  0,  0 ; $E7
+	mapconst Z3,                  		 0,  0 ; $E7
 	mapconst ROCK_TUNNEL_B1F,               23, 20 ; $E8 ; $ED
 	mapconst SILPH_CO_9F,                    9, 13 ; $E9
 	mapconst SILPH_CO_10F,                   9,  8 ; $EA
 	mapconst SILPH_CO_11F,                   9,  9 ; $EB ; $F0, ACTUALLY
 	mapconst SILPH_CO_ELEVATOR,              2,  2 ; $EC
-	mapconst UNUSED_MAP_ED,                  0,  0 ; $ED
+	mapconst Z2,                  		 0,  0 ; $ED
+	mapconst Z1,			        12,  7 ; $EE
 	mapconst TRADE_CENTER,                   4,  5 ; $EF
 	mapconst COLOSSEUM,                      4,  5 ; $F0 
 
 	mapconst LORELEIS_ROOM,                  6,  5 ; $F5
 	mapconst BRUNOS_ROOM,                    6,  5 ; $F6
 	mapconst AGATHAS_ROOM,                   6,  5 ; $F7
+	mapconst Z10,			        12,  7 ; $F8
+	mapconst Z11,			        12,  7 ; $F9
+	mapconst Z12,			        12,  7 ; $FA
+	mapconst Z13,			        12,  7 ; $FB
+	mapconst Z14,			        12,  7 ; $FC
+	mapconst Z15,			        12,  7 ; $FD
+	mapconst Z16,			        12,  7 ; $FE
+	mapconst Z17,			        12,  7 ; $FF
+	mapconst Z18,			        12,  7 ; $100
+	mapconst Z19,			        12,  7 ; $101
+	mapconst Z20,			        12,  7 ; $102

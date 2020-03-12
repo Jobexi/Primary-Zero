@@ -423,7 +423,7 @@ _AddPartyMon:
 	inc de
 	ld [de], a
 	push de
-	ld a, [wCurEnemyLVL]
+	ld a, 250 ; [wCurEnemyLVL]
 	ld d, a
 ;	callab CalcExperience
 	pop de

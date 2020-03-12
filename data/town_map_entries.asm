@@ -100,7 +100,6 @@ InternalMapEntries:
 	IMAP VERMILION_TRADE_HOUSE,         $A,$9,VermilionCityName
 	IMAP DIGLETTS_CAVE,                 $3,$4,DiglettsCaveName
 	IMAP VICTORY_ROAD_3F,               $0,$4,VictoryRoadName
-	IMAP UNUSED_MAP_CE,                 $7,$5,RocketHQName
 	IMAP SILPH_CO_8F,                   $A,$5,SilphCoName
 	IMAP POKEMON_MANSION_B1F,           $2,$F,PokemonMansionName
 	IMAP SAFARI_ZONE_NORTH_REST_HOUSE,  $8,$C,SafariZoneName

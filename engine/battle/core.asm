@@ -1438,6 +1438,49 @@ EnemySendOutFirstMon:
 	or c
 	jr z, .next2
 .next3
+	ld a, [wJobexi1]
+	cp $3
+	jr z, .mon3
+	cp $4
+	jr z, .mon4
+	cp $5
+	jr z, .mon5
+	cp $6
+	jr z, .mon6
+	jr .normalBattle
+.mon1	
+	jr .normalBattle
+.mon2	
+	jr .normalBattle
+.mon3
+	ld a, [wWhichPokemon]
+	cp $2
+	jr nz, .normalBattle
+	ld a, $17 ; !!!!!!! This code is reached. I'm not sure what happens beyond that, tho.
+	ld [wEnemyMonSpecies], a 
+	jr .normalBattle
+.mon4
+	ld a, [wWhichPokemon]
+	cp $3
+	jr nz, .normalBattle
+	ld a, $17
+	ld [wEnemyMonSpecies], a 
+	jr .normalBattle
+.mon5
+	ld a, [wWhichPokemon]
+	cp $4
+	jr nz, .normalBattle
+	ld a, $17
+	ld [wEnemyMonSpecies], a 
+	jr .normalBattle
+.mon6	
+	ld a, [wWhichPokemon]
+	cp $5
+	jr nz, .normalBattle
+	ld a, $17
+	ld [wEnemyMonSpecies], a 
+	jr .normalBattle
+.normalBattle		
 	ld a, [wWhichPokemon]
 	ld hl, wEnemyMon1Level
 	ld bc, wEnemyMon2 - wEnemyMon1
@@ -1664,7 +1707,7 @@ TryRunningFromBattle:
 	ld a, [H_QUOTIENT + 3]
 	cp b
 	jr nc, .canEscape ; if the random value was less than or equal to the quotient
-	                  ; plus 30 times the number of attempts, the player can escape
+	                  ; plus 47 times the number of attempts, the player can escape
 ; can't escape
 	ld a, $1
 	ld [wActionResultOrTookBattleTurn], a ; you lose your turn when you can't escape
@@ -4724,7 +4767,7 @@ CriticalHitTest:
 	ld b, $ff                    ; cap at 255/256
 	jr .noFocusEnergyUsed
 .focusEnergyUsed
-	srl b
+	sla b
 .noFocusEnergyUsed
 	ld hl, HighCriticalMoves     ; table of high critical hit moves
 .Loop

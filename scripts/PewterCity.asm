@@ -29,6 +29,14 @@ PGS2:
 	predef_jump ReplaceTileBlock	
 
 PGS3:
+	ld a, [wStory1]
+	cp $1
+	jr nz, .done
+	ld a, [wStory2]
+	cp $2
+	jr nz, .done
+	ResetEventRange EVENT_9E1, EVENT_9EA
+.done	
 	ld a, $02
 	ld [wJobexi1], a
 	ld a, $00

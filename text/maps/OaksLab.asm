@@ -502,7 +502,7 @@ _OaksLabChallengeText::
 	
 	para "As of today, the"
 	line "league has been"
-	cont "dissolved, And is"
+	cont "dissolved, and is"
 	cont "being replaced by"
 	cont "a new challenge."
 	
@@ -514,10 +514,14 @@ _OaksLabChallengeText::
 	cont "leaders in the"
 	cont "Primary League!"
 	
-	para "Surprise! I'm the"
-	line "first gym leader!"
-	cont "I hope you have"
-	cont "a balanced team!"
+	para "I'm in charge of"
+	line "determining who"
+	cont "qualifies to"
+	cont "participate."
+	
+	para "I hope you"
+	line "brought a"
+	cont "balanced team!"
 	done	
 	
 _OaksWinText::

@@ -48,7 +48,6 @@ WildDataPointers:
 	dw NoMons	   ; UPSPIRALING PATH
 	dw NoMons	   ; VIOLET FIELDS
 	dw NoMons	   ; ASCENSION TOWER
-	dw NoMons	   ; GYM BANK 1
 	dw NoMons      ; REDS_HOUSE_1F
 	dw NoMons
 	dw NoMons
@@ -237,6 +236,7 @@ WildDataPointers:
 	dw NoMons
 	dw NoMons
 	dw TunnelMonsB2
+	dw NoMons
 	dw NoMons
 	dw NoMons
 	dw NoMons
