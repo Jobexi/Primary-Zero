@@ -22,43 +22,7 @@ Z1_ScriptPointers:
 	dw CheckFightingMapTrainers
 	dw DisplayEnemyTrainerTextAndStartBattle
 	dw EndTrainerBattle
-
-Z1PewterScript_5c3df:
-	ld a, $4
-	ld [hSpriteIndexOrTextID], a
-	call DisplayTextID
-	SetEvent EVENT_BEAT_BROCK
-	lb bc, TM_34, 1
-	call GiveItem
-	jr nc, .BagFull
-	ld a, $5
-	ld [hSpriteIndexOrTextID], a
-	call DisplayTextID
-	SetEvent EVENT_GOT_TM34
-	jr .gymVictory
-.BagFull
-	ld a, $6
-	ld [hSpriteIndexOrTextID], a
-	call DisplayTextID
-.gymVictory
-	ld hl, wObtainedBadges
-	set 0, [hl]
-	ld hl, wBeatGymFlags
-	set 0, [hl]
-
-	ld a, HS_GYM_GUY
-	ld [wMissableObjectIndex], a
-	predef HideObject
-	ld a, HS_ROUTE_22_RIVAL_1
-	ld [wMissableObjectIndex], a
-	predef HideObject
-
-;	ResetEvents EVENT_1ST_ROUTE22_RIVAL_BATTLE, EVENT_ROUTE22_RIVAL_WANTS_BATTLE
-
-	; deactivate gym trainers
-;	SetEvent EVENT_BEAT_PEWTER_GYM_TRAINER_0
-
-	ret
+	dw Z1PewterText11
 
 Z1_TextPointers:
 
@@ -165,7 +129,7 @@ Z1TrainerHeader10:
 	dw Z1PewterAfterBattleText10 ; TextAfterBattle
 	dw Z1PewterEndBattleText10 ; TextEndBattle
 	dw Z1PewterEndBattleText10 ; TextEndBattle
-	
+
 	db $ff
 
 Z1PewterBattleText1:
@@ -290,66 +254,88 @@ Z1PewterAfterBattleText10:
 
 Z1PewterText1:
 	TX_ASM
+	ld a, $4
+	ld [wJobexi1], a	
 	ld hl, Z1TrainerHeader1	
 	call TalkToTrainer
 	jp TextScriptEnd
 
 Z1PewterText2:
 	TX_ASM
+	ld a, $4
+	ld [wJobexi1], a
 	ld hl, Z1TrainerHeader2	
 	call TalkToTrainer
 	jp TextScriptEnd
 	
 Z1PewterText3:
 	TX_ASM
+	ld a, $3
+	ld [wJobexi1], a
 	ld hl, Z1TrainerHeader3	
 	call TalkToTrainer
 	jp TextScriptEnd
 	
 Z1PewterText4:
 	TX_ASM
+	ld a, $4
+	ld [wJobexi1], a
 	ld hl, Z1TrainerHeader4	
 	call TalkToTrainer
 	jp TextScriptEnd
 	
 Z1PewterText5:
 	TX_ASM
+	ld a, $4
+	ld [wJobexi1], a
 	ld hl, Z1TrainerHeader5	
 	call TalkToTrainer
 	jp TextScriptEnd
 	
 Z1PewterText6:
 	TX_ASM
+	ld a, $4
+	ld [wJobexi1], a
 	ld hl, Z1TrainerHeader6	
 	call TalkToTrainer
 	jp TextScriptEnd
 	
 Z1PewterText7:
 	TX_ASM
+	ld a, $4
+	ld [wJobexi1], a
 	ld hl, Z1TrainerHeader7	
 	call TalkToTrainer
 	jp TextScriptEnd
 	
 Z1PewterText8:
 	TX_ASM
+	ld a, $4
+	ld [wJobexi1], a
 	ld hl, Z1TrainerHeader8	
 	call TalkToTrainer
 	jp TextScriptEnd
 	
 Z1PewterText9:
 	TX_ASM
+	ld a, $3
+	ld [wJobexi1], a
 	ld hl, Z1TrainerHeader9	
 	call TalkToTrainer
 	jp TextScriptEnd
 	
 Z1PewterText10:
 	TX_ASM
+	ld a, $4
+	ld [wJobexi1], a
 	ld hl, Z1TrainerHeader10	
 	call TalkToTrainer
 	jp TextScriptEnd
 
 Z1PewterText11:
 	TX_ASM
+	ld a, $5
+	ld [wJobexi1], a
 	call Z1Pewter_5c3a4
 	ld a, [wStory1]
 	cp $1
@@ -361,6 +347,8 @@ Z1PewterText11:
 	jr z, .noGetPrizeFromOak
 	cp $2
 	jr z, .qualified
+	cp $3
+	jr z, .getPrize
 	jr .defeatedBrock
 .notQualified
 	ld hl, Z1PewterText_NQB
@@ -369,15 +357,43 @@ Z1PewterText11:
 .noGetPrizeFromOak
 	ld hl, Z1PewterText_DGPFOB
 	call PrintText	
-	jp TextScriptEnd
-.qualified
-	ld hl, Z1PewterText_QB
-	call PrintText	
 	jp TextScriptEnd	
+.getPrize	
+	ld a, $4
+	ld [wStory2], a
+	lb bc, POKE_BAIT + 1, 1
+	call GiveItem
+	ld hl, BrockGetPrize1
+	call PrintText
+	ld hl, BrockGetPrize2
+	call PrintText
 .defeatedBrock	
 	ld hl, Z1PewterText_DBB
 	call PrintText
 	jp TextScriptEnd	
+.qualified
+	predef HealParty
+	ld hl, Z1PewterText_QB
+	call PrintText
+	ld a, OPP_BROCK
+	ld [wCurOpponent], a
+	ld a, $2
+	ld [wTrainerNo], a
+	ld a, $1
+	ld hl, wd72d
+	set 6, [hl]
+	set 7, [hl]
+	ld hl, Z1PewterText_5c4bc
+	ld de, Z1PewterText_5c4bc
+	call SaveEndBattleTextPointers	
+	ld a, [H_SPRITEINDEX]
+	ld [wSpriteIndex], a
+	call EngageMapTrainer
+	ld a, $1
+	ld [wGymLeaderNo], a
+	ld a, $3	
+	ld [wStory2], a	
+	jp TextScriptEnd
 
 Z1PewterText12:
 	TX_ASM
@@ -408,7 +424,7 @@ Z1PewterText12:
 	ld hl, Z1PewterText_DB
 	call PrintText
 	jp TextScriptEnd
-	
+
 Z1PewterText_NQ:
 	TX_FAR _Z1PewterText_NQ
 	db "@"
@@ -426,17 +442,34 @@ Z1PewterText_DB:
 	db "@"	
 
 Z1PewterText_NQB:
-	TX_FAR _Z1PewterText_NQ
+	TX_FAR _Z1PewterText_NQB
 	db "@"
 
 Z1PewterText_DGPFOB:
-	TX_FAR _Z1PewterText_DGPFO
+	TX_FAR _Z1PewterText_DGPFOB
 	db "@"	
 
 Z1PewterText_QB:
-	TX_FAR _Z1PewterText_Q
+	TX_FAR _Z1PewterText_QB
 	db "@"
 
 Z1PewterText_DBB:
-	TX_FAR _Z1PewterText_DB
-	db "@"			
+	TX_FAR _Z1PewterText_DBB
+	db "@"		
+	
+Z1PewterText_5c4a3:
+	TX_FAR _Z1PewterText_5c4a3
+	db "@"
+
+Z1PewterText_5c4bc:
+	TX_FAR _Z1PewterText_5c4bc
+	db "@"
+	
+BrockGetPrize1:	
+	TX_FAR _Z1PewterText_5c4c1a
+	TX_SFX_LEVEL_UP
+	db "@"
+
+BrockGetPrize2:	
+	TX_FAR _Z1PewterText_5c4c1b	
+	db "@"	

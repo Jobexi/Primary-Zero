@@ -115,7 +115,7 @@ ItemUsePtrTable:
 	dw UnusableItem      ; ELEVATOR FLOORS
 	dw ItemUseBall       ; ROCKET_BALL
 	dw ItemFancyRod      ; POKE_BAIT
-
+	dw ItemFancyRod      ; STONE_FLUTE
 ItemUseBall:
 
 ; Balls can't be used out of battle.
@@ -3082,14 +3082,20 @@ ItemFancyRod:
 	ld a, [hl]
 	cp $63
 	jr z, .pokebait
+	cp $64
+	jr z, .stoneFlute
 .pokebait	
-	ld b, 43
+	ld b, 44
 	ld hl, PokeBaitMons
 	jr .RandomLoop
+.stoneFlute	
+	ld b, 31
+	ld hl, StoneFluteMons
+	jr .RandomLoop	
 .RandomLoop
 	call Random
 	srl a
-	cp b ; DETERMINES MAX RANDOM #
+	cp b ; b should equal Max # + 1
 	jr nc, .RandomLoop
 	; choose which monster appears
 	add a
@@ -3115,16 +3121,17 @@ FancyRodResponse:
 	ld [wCurOpponent], a
 
 .next
-;	ld hl, wWalkBikeSurfState
-;	ld a, [hl] ; store the value in a
-;	push af
-;	push hl
-;	ld [hl], 0
-;	callba FishingAnim
-;	pop hl
-;	pop af
-;	ld [hl], a
-	ret
+	ld hl, wWalkBikeSurfState
+	ld a, [hl] ; store the value in a
+	push af
+	push hl
+	ld [hl], 0
+	callba FancyFishing
+	pop hl
+	pop af
+	ld [hl], a
+	ret 
+	
 ; checks if fishing is possible and if so, runs initialization code common to all rods
 ; unsets carry if fishing is possible, sets carry if not
 
@@ -3146,3 +3153,4 @@ FancyFishingInit:
 	ret
 
 INCLUDE "data/pokebait.asm"
+INCLUDE "data/stoneflute.asm"

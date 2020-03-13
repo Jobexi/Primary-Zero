@@ -101,6 +101,7 @@ SAFARI_ROCK           EQU $16 ; overload
 	const FLOOR_B4F     ; $61
 	const ROCKET_BALL   ; $62
 	const POKE_BAIT	    ; $63
+	const STONE_FLUTE   ; $64
 	
 const_value = $C4
 

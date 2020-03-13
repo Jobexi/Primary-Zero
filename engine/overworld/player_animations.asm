@@ -462,6 +462,54 @@ FishingAnim:
 	ld [hl], a
 	ret
 
+FancyFishing:
+	ld c, 10
+	call DelayFrames
+	ld hl, wd736
+	set 6, [hl] ; reserve the last 4 OAM entries
+	ld de, RedSprite
+	ld hl, vNPCSprites
+	lb bc, BANK(RedSprite), $c
+	call CopyVideoData
+	ld a, $4
+	ld hl, RedFishingTiles
+	ld de, wOAMBuffer + $9c
+	ld bc, $4
+	call CopyData
+	ld c, 100
+	call DelayFrames
+	ld a, [wRodResponse]
+	and a
+
+; there was a bite
+
+; shake the player's sprite vertically
+	ld b, 10
+.loop
+	ld hl, wSpriteStateData1 + 4 ; player's sprite Y screen position
+	call .ShakePlayerSprite
+	ld hl, wOAMBuffer + $9c
+	call .ShakePlayerSprite
+	call Delay3
+	dec b
+	jr nz, .loop
+	ld hl, FancyText
+.done
+	call PrintText
+	ld hl, wd736
+	res 6, [hl] ; unreserve the last 4 OAM entries
+	ret
+
+.ShakePlayerSprite
+	ld a, [hl]
+	xor $1
+	ld [hl], a
+	ret
+
+FancyText:
+	TX_FAR _FancyItemText
+	db "@"	
+	
 NoNibbleText:
 	TX_FAR _NoNibbleText
 	db "@"

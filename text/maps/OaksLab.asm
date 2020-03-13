@@ -519,9 +519,8 @@ _OaksLabChallengeText::
 	cont "qualifies to"
 	cont "participate."
 	
-	para "I hope you"
-	line "brought a"
-	cont "balanced team!"
+	para "I hope you have"
+	line "a balanced team!"
 	done	
 	
 _OaksWinText::
@@ -532,20 +531,25 @@ _OaksWinText::
 _OaksLoseText::
 	text "As I "
 	line "suspected."
+	cont "Don't leave"
+	cont "before I give"
+	cont "you your prize!"	
 	prompt
 	
 _OaksLabSuccessText1::
 	text "I am not"
 	line "disappointed."
-	cont "this is just the"
-	cont "beginning of your"
+	
+	para "this is just the"
+	line "beginning of your"
 	cont "next amazing"
 	cont "adventure!"
 	
 	para "Head over to"
 	line "Pewter City!"
-	cont "Brock and pals"
-	cont "are especially"
+	
+	para "Brock and pals"
+	line "are especially"
 	cont "looking to see"
 	cont "you in action!"
 	
@@ -557,6 +561,7 @@ _OaksLabSuccessText1::
 _OaksLabGetPrize::
 	text "<PLAYER> received"
 	line "#BAIT!@@"
+	done
 	
 _OaksLabSuccessText2::
 	text "This will let"

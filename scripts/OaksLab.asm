@@ -1033,7 +1033,7 @@ OaksLabText5:
 	ld a, [H_SPRITEINDEX]
 	ld [wSpriteIndex], a
 	call EngageMapTrainer
-	ld a, $9
+	ld a, $0
 	ld [wGymLeaderNo], a
 	ld a, $1
 	ld [wStory2], a

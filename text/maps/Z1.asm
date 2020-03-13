@@ -1,3 +1,22 @@
+_Z1PewterText_5c49e::
+	text "I'm BROCK!"
+	line "I'm PEWTER's GYM"
+	cont "LEADER!"
+
+	para "I believe in rock"
+	line "hard defense and"
+	cont "determination!"
+
+	para "That's why my"
+	line "#MON are all"
+	cont "the rock-type!"
+
+	para "Do you still want"
+	line "to challenge me?"
+	cont "Fine then! Show"
+	cont "me your best!"
+	done
+
 _Z1PewterText_5c4a3::
 	text "There are all"
 	line "kinds of trainers"
@@ -17,27 +36,28 @@ _Z1PewterText_5c4bc::
 	line "you for granted."
 
 	para "As proof of your"
-	line "victory, here's"
-	cont "the BOULDERBADGE!"
-
-	para "<PLAYER> received"
-	line "the BOULDERBADGE!@@"
-
-_Z1PewterText_5c4c1::
-	text ""
-
-	para "That's an official"
-	line "#MON LEAGUE"
-	cont "BADGE!"
-
-	para "Its bearer's"
-	line "#MON become"
-	cont "more powerful!"
-
-	para "The technique"
-	line "FLASH can now be"
-	cont "used any time!"
+	line "victory, don't"
+	cont "forget to take"
+	cont "a STONE FLUTE!"
 	prompt
+
+_Z1PewterText_5c4c1a::
+	text "<PLAYER> received"
+	line "the STONE FLUTE!"
+	done
+	
+_Z1PewterText_5c4c1b::
+	text "This flute will"
+	line "attract a ROCK"
+	cont "#mon to your"
+	cont "location!"
+	
+	para "Don't forget to"
+	line "have plenty of"
+	cont "#BALLs on hand,"
+	cont "and free space"
+	cont "in your #BOX."
+	prompt	
 
 _Z1PewterBattleText1::
 	text "Do you like"
@@ -69,7 +89,7 @@ _Z1PewterEndBattleText2::
 	text "Time"
 	line "is an illusion."
 	
-	para "lunchtime,"
+	para "Lunchtime,"
 	line "doubly so."
 	prompt
 
@@ -312,6 +332,7 @@ _Z1PewterText_QB::
 	
 	para "I'm not holding"
 	line "anything back!"
+	done
 
 _Z1PewterText_DBB::
 	text "Congratulations!"

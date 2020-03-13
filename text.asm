@@ -46,6 +46,10 @@ _NoNibbleText::
 	text "Not even a nibble!"
 	prompt
 
+_FancyItemText::
+	text "Here it comes!"
+	prompt	
+
 _NothingHereText::
 	text "Looks like there's"
 	line "nothing here."

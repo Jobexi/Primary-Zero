@@ -98,3 +98,4 @@ ItemNames:
 	db "B4F@"
 	db "ROCKET BALL@"
 	db "POKéBAIT@"
+	db "STONE FLUTE@"

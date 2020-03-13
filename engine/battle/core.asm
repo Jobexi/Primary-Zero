@@ -1437,50 +1437,7 @@ EnemySendOutFirstMon:
 	ld a, [hl]
 	or c
 	jr z, .next2
-.next3
-	ld a, [wJobexi1]
-	cp $3
-	jr z, .mon3
-	cp $4
-	jr z, .mon4
-	cp $5
-	jr z, .mon5
-	cp $6
-	jr z, .mon6
-	jr .normalBattle
-.mon1	
-	jr .normalBattle
-.mon2	
-	jr .normalBattle
-.mon3
-	ld a, [wWhichPokemon]
-	cp $2
-	jr nz, .normalBattle
-	ld a, $17 ; !!!!!!! This code is reached. I'm not sure what happens beyond that, tho.
-	ld [wEnemyMonSpecies], a 
-	jr .normalBattle
-.mon4
-	ld a, [wWhichPokemon]
-	cp $3
-	jr nz, .normalBattle
-	ld a, $17
-	ld [wEnemyMonSpecies], a 
-	jr .normalBattle
-.mon5
-	ld a, [wWhichPokemon]
-	cp $4
-	jr nz, .normalBattle
-	ld a, $17
-	ld [wEnemyMonSpecies], a 
-	jr .normalBattle
-.mon6	
-	ld a, [wWhichPokemon]
-	cp $5
-	jr nz, .normalBattle
-	ld a, $17
-	ld [wEnemyMonSpecies], a 
-	jr .normalBattle
-.normalBattle		
+.next3	
 	ld a, [wWhichPokemon]
 	ld hl, wEnemyMon1Level
 	ld bc, wEnemyMon2 - wEnemyMon1
@@ -1493,7 +1450,39 @@ EnemySendOutFirstMon:
 	ld c, a
 	ld b, 0
 	add hl, bc
+	ld a, [wJobexi1]
+	cp $3
+	jr z, .last3
+	cp $4
+	jr z, .last4
+	cp $5
+	jr z, .first5
+	cp $6
+	jr z, .all
+.last3
+	ld a, [wWhichPokemon]
+	cp $3
+	jr c, .normalBattle
+	call genRandomPokemon
+	jr .randomBattle	
+.last4
+	ld a, [wWhichPokemon]
+	cp $2
+	jr c, .normalBattle
+	call genRandomPokemon
+	jr .randomBattle
+.first5
+	ld a, [wWhichPokemon]
+	cp $5
+	jr nc, .normalBattle
+	call genRandomPokemon
+	jr .randomBattle
+.all
+	call genRandomPokemon
+	jr .randomBattle	
+.normalBattle
 	ld a, [hl]
+.randomBattle			
 	ld [wEnemyMonSpecies2], a
 	ld [wcf91], a
 	call LoadEnemyMonData
@@ -1582,6 +1571,162 @@ EnemySendOutFirstMon:
 	ld [wPartyFoughtCurrentEnemyFlags], a
 	call SaveScreenTilesToBuffer1
 	jp SwitchPlayerMon
+
+genRandomPokemon:
+	ld a, [wJobexi2]
+	cp $0
+	jp z, .kantoSet
+	cp $1
+	jp z, .rockSet
+	ld a, [hl]
+	ret
+.kantoSet
+	call PlzRandom
+	cp VICTREEBEL	
+	jr nc, .kantoSet
+	call VetBads
+	cp $0
+	jr z, .kantoSet
+	ret
+.rockSet
+	call PlzRandom
+	cp 5
+	jr c, .do0
+	cp 9
+	jr c, .do1
+	cp 11
+	jr c, .do2
+	cp 15
+	jr c, .do3
+	cp 20
+	jr c, .do4
+	cp 22
+	jr c, .do5
+	cp 27
+	jr c, .do6
+	cp 29
+	jr c, .do7
+	cp 30
+	jr c, .do8
+	jr .rockSet
+.do0
+	ld a, GEODUDE
+	jr .done
+.do1
+	ld a, GRAVELER
+	jr .done
+.do2
+	ld a, GOLEM
+	jr .done
+.do3
+	ld a, ONIX
+	jr .done
+.do4
+	ld a, OMANYTE
+	jr .done
+.do5
+	ld a, OMASTAR
+	jr .done
+.do6
+	ld a, KABUTO
+	jr .done
+.do7
+	ld a, KABUTOPS
+	jr .done
+.do8	
+	ld a, AERODACTYL
+	jr .done
+.done
+	ret	
+
+VetBads:
+	cp $0
+	jp z, .bad
+	cp $0
+	jp z, .bad
+	cp $1F
+	jp c, .good
+	cp $21
+	jp c, .bad
+	cp $32
+	jp z, .bad
+	cp $34
+	jp z, .bad
+	cp $38
+	jp z, .bad
+	cp $3D
+	jp c, .good
+	cp $40
+	jp c, .bad
+	cp $43
+	jp c, .bad
+	cp $45
+	jp c, .bad
+	cp $4F
+	jp c, .good
+	cp $52
+	jp c, .bad
+	cp $56
+	jp c, .good
+	cp $58
+	jp c, .bad
+	cp $5E
+	jp c, .good
+	cp $60
+	jp c, .bad
+	cp $73
+	jp z, .bad
+	cp $79
+	jp c, .good
+	cp $7B
+	jp c, .bad
+	cp $7F
+	jp z, .bad
+	cp $86
+	jp c, .good
+	cp $88
+	jp c, .bad
+	cp $89
+	jp z, .bad
+	cp $8C
+	jp z, .bad
+	cp $92
+	jp z, .bad
+	cp $9C
+	jp z, .bad
+	cp $9F
+	jp c, .good
+	cp $A3
+	jp c, .bad
+	cp $AC
+	jp z, .bad
+	cp $AE
+	jp c, .good
+	cp $B0
+	jp c, .bad
+	cp $B5
+	jp c, .good
+	cp $B9
+	jp c, .bad
+.bad	
+	ld a, $0
+	ret		
+.good
+	ret	
+	
+	
+PlzRandom:
+	ld a, [rDIV]
+	ld b, a
+	ld a, [hRandomAdd]
+	adc b
+	ld [hRandomAdd], a
+	ld a, [rDIV]
+	ld b, a
+	ld a, [hRandomSub]
+	sbc b
+	ld [hRandomSub], a
+	ret
 
 TrainerAboutToUseText:
 	TX_FAR _TrainerAboutToUseText
