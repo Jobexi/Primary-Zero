@@ -30,7 +30,7 @@ GainExperience:
 .gainStatExpLoop
 	ld a, [hli]
 	ld b, a ; enemy mon base stat
-	ld a, [de] ; stat exp
+	ld a, [de] ; stat exp	
 	add b ; add enemy mon base state to stat exp
 	ld [de], a
 	jr nc, .nextBaseStat
@@ -92,6 +92,12 @@ GainExperience:
 ; add the gained exp to the party mon's exp
 	ld b, [hl]
 	ld a, [H_QUOTIENT + 3]
+	cp 117
+	jr c, .minCheck
+	jr .doNormal
+.minCheck
+	ld a, 117
+.doNormal
 	ld [wExpAmountGained + 1], a
 	add b
 	ld [hld], a

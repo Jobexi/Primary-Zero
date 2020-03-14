@@ -201,7 +201,8 @@ wFrequencyModifier:: ; c0f1
 wTempoModifier:: ; c0f2
 	ds 1
 
-	ds 13 ; this is the very last free space at the end of the music register
+	ds 13
+
 
 SECTION "Sprite State Data", WRAM0
 
@@ -311,9 +312,10 @@ wSprite12StateData2::      spritestatedata2 wSprite12StateData2
 wSprite13StateData2::      spritestatedata2 wSprite13StateData2
 wSprite14StateData2::      spritestatedata2 wSprite14StateData2
 wSprite15StateData2::      spritestatedata2 wSprite15StateData2
+
+
 wSpriteDataEnd::
 
-; there is no space at the end of this register.
 
 SECTION "OAM Buffer", WRAM0
 
@@ -2369,7 +2371,7 @@ wMapPalOffset:: ; d35d
 ; normally, it is 0. it is 6 when Flash is needed, causing FadePal2 to be used instead of FadePal4
 	ds 1
 
-; WCurMap:: ; d35e ; moved lower
+wCurMap:: ; d35e
 	ds 1
 
 wCurrentTileBlockMapViewPointer:: ; d35f
@@ -2390,7 +2392,7 @@ wYBlockCoord:: ; d363
 wXBlockCoord:: ; d364
 	ds 1
 
-; wLastMap:: ; d365 ; Moved Lower
+wLastMap:: ; d365
 	ds 1
 
 wUnusedD366:: ; d366
@@ -2938,14 +2940,14 @@ wRivalStarter:: ; d715
 wPlayerStarter:: ; d717
 	ds 1
 
-wBoulderSpriteIndex:: ; d718 ; D7B8		
+wBoulderSpriteIndex:: ; d718
 ; sprite index of the boulder the player is trying to push
 	ds 1
 
-; wLastBlackoutMap:: ; d719 ; Moved Lower
+wLastBlackoutMap:: ; d719
 	ds 1
 
-; wDestinationMap:: ; d71a ; D7BA ; Moved Lower
+wDestinationMap:: ; d71a
 ; destination map (for certain types of special warps, not ordinary walking)
 	ds 1
 
@@ -2957,7 +2959,7 @@ wTileInFrontOfBoulderAndBoulderCollisionResult:: ; d71c
 ; also used to store the result of the collision check ($ff for a collision and $00 for no collision)
 	ds 1
 
-; wDungeonWarpDestinationMap:: ; d71d ; d7bd ; Moved Lower
+wDungeonWarpDestinationMap:: ; d71d
 ; destination map for dungeon warps
 	ds 1
 
@@ -2994,7 +2996,7 @@ wd72c:: ; d72c
 ; bit 1: prevent audio fade out
 	ds 1
 
-wd72d:: ; d72d ; d7cd
+wd72d:: ; d72d
 ; This variable is used for temporary flags and as the destination map when
 ; warping to the Trade Center or Colosseum.
 ; bit 0: sprite facing directions have been initialised in the Trade Center
@@ -3043,7 +3045,7 @@ wd732:: ; d732
 ; bit 6: map destination is [wLastBlackoutMap] (usually the last used pokemon center, but could be the player's house)
 	ds 1
 
-wFlags_D733:: ; d733 ; D7D3
+wFlags_D733:: ; d733
 ; bit 0: running a test battle
 ; bit 1: prevent music from changing when entering new map
 ; bit 2: skip the joypad check in CheckWarpsNoCollision (used for the forced warp down the waterfall in the Seafoam Islands)
@@ -3182,24 +3184,8 @@ wDayCareMonOT::   ds NAME_LENGTH ; da54
 
 wDayCareMon:: box_struct wDayCareMon ; da5f
 
-wCurMap:: ; d35e ; Moved from above
-	ds 2
-
-wLastMap:: ; d365 ; Moved from above
-	ds 2
-
-wLastBlackoutMap:: ; d719 ; Moved from above
-	ds 2
-
-wDestinationMap:: ; d71a ; D7BA ; Moved from above
-; destination map (for certain types of special warps, not ordinary walking)
-	ds 2	
-	
-wDungeonWarpDestinationMap:: ; d71d ; d7bd ; Moved from above
-; destination map for dungeon warps
-	ds 2
-	
 wMainDataEnd::
+
 
 wBoxDataStart::
 
@@ -3218,12 +3204,7 @@ wBoxDataEnd::
 
 ; dee2
 
-	ds 91 ; the very last bits accessible in this register.
-
 SECTION "Stack", WRAM0
-
-	ds 1 ; exactly one free byte of space... jinkies.
-
 wStack:: ; dfff
 
 
