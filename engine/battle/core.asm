@@ -1459,7 +1459,8 @@ EnemySendOutFirstMon:
 	jr z, .first5
 	cp $6
 	jr z, .all
-.last3
+	jr .normalBattle
+.last3	
 	ld a, [wWhichPokemon]
 	cp $3
 	jr c, .normalBattle

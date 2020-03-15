@@ -30,7 +30,7 @@ GainExperience:
 .gainStatExpLoop
 	ld a, [hli]
 	ld b, a ; enemy mon base stat
-	ld a, [de] ; stat exp	
+	ld a, [de] ; stat exp
 	add b ; add enemy mon base state to stat exp
 	ld [de], a
 	jr nc, .nextBaseStat
